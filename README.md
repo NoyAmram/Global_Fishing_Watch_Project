@@ -2,7 +2,7 @@ GLOBAL FISHING WATCH PROJECT
 
 The project was done as part of John Bryce' Data Science course,
 focuses on build Machine Learning models using Python.
-Global Fishing Watch is a Flask application that receive relevant data from the user and returns the prediction
+Global Fishing Watch is a Flask application that receives relevant data from the user and returns the prediction
 for vessel activity in the sea.
 Training data is being collected using Selenium from a public governmental site.
 The prediction model used is Random Forest Classifier.
