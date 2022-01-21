@@ -1,0 +1,19 @@
+
+Before you start running:
+1. verify you are in the main directory for the project.
+2. verify 'fixtures' subdirectory is exist.
+3. verify rfc pickle file is is existing in 'fixtures'
+   (either downloaded from the drive or created by running the collector).
+
+In order to run this project in docker, preform the following commands:
+
+cd to the main directory where the files are saved (project directory)
+
+docker build . -t forecast_1 -f ./Dockerfile_forecast
+docker run -v  C:\Users\Admin\Global_Fishing_Watch_Project\fixtures:/app/fixtures -p 8081:8081 -it forecast_1
+
+##change this path 'C:\Users\Admin\Global_Fishing_Watch_Project' to fit your directory path
+
+Then you can access http://localhost:8081/ via browser and use the application.
+
+Prediction accuracy is 98%; Model used is Random Forest Classifier

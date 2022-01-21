@@ -1,0 +1,18 @@
+
+Before you start running:
+1. verify you are in the main directory for the project.
+2. verify 'fixtures' subdirectory is existing.
+3. make sure docker engine is running.
+4. make sure 'full_raw_data' csv file is existing in 'fixtures'
+   (either downloaded from the drive or created by running the crawling).
+
+In order to run this project in docker, preform the following commands:
+
+cd to the main directory where the files are saved (project directory)
+
+docker build . -t collector_1 -f ./Dockerfile_collector
+docker run -v C:\Users\Admin\Global_Fishing_Watch_Project\fixtures:/app/fixtures -it collector_1
+
+##change this path 'C:\Users\Admin\Global_Fishing_Watch_Project' to fit your directory path
+
+Run the last line inside a cronjob (LINUX) / task scheduler (WINDOWS) in order to recreate the model repeatedly.

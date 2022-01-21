@@ -1,0 +1,91 @@
+<form class="form-horizontal" action="/getForecast">
+<fieldset>
+
+<!-- Form Name -->
+<header>
+    <h1>Finding Suspicious Activity of Fishing Vessels at Sea</h1>
+</header><br>
+
+<!-- Textarea -->
+<div class="form-group">
+    <label class="col-md-4 control-label" style="font-size:16pt" for="textarea">Preface</label>
+  <div class="col-md-4">
+   <textarea class="form-control" id="textarea" name="textarea" rows="6" cols="100" disabled>This site provides tracking of vessels' activity at sea.
+By providing data on the vessel, you will be able to find whether the fishing boat is really out for fishing (score of 1), or it is out for a suspicious activity (might be illegal) with a score of 0.</textarea>
+  </div>
+</div><br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="timestamp">Date &amp; Time</label>
+  <div class="col-md-4">
+  <input id="timestamp" name="timestamp" type="text" placeholder="2021-03-28 10:48" class="form-control input-md" required=""><br>
+  <span class="help-block"><small>Enter date &amp; time (yyyy-mm-dd hh:mm)</small></span>
+  </div>
+</div><br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="distance_from_shore">Distance from Shore</label>
+  <div class="col-md-4">
+  <input id="distance_from_shore" name="distance_from_shore" type="text" placeholder="232994.281" class="form-control input-md" required=""><br>
+      <span class="help-block"><small>Enter the vessel distance from the shore in meters</small></span>
+  </div>
+</div><br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="distance_from_port">Distance from Port</label>
+  <div class="col-md-4">
+  <input id="distance_from_port" name="distance_from_port" type="text" placeholder="311748.656" class="form-control input-md" required=""><br>
+      <span class="help-block"><small>Enter the vessel distance from the closest port in meters</small></span>
+  </div>
+</div><br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="speed">Speed</label>
+  <div class="col-md-4">
+  <input id="speed" name="speed" type="text" placeholder="8.2" class="form-control input-md" required=""><br>
+      <span class="help-block"><small>Enter the vessel's speed in Knots (1 Knot = 1.852 Kilometer per hour)</small></span>
+  </div>
+</div><br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="course">Course</label>
+  <div class="col-md-4">
+  <input id="course" name="course" type="text" placeholder="230.5" class="form-control input-md" required=""><br>
+      <span class="help-block"><small>Cardinal direction in which the vessel is to be steered</small></span>
+  </div>
+</div><br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="lat"> Latitude</label>
+  <div class="col-md-4">
+  <input id="lat" name="lat" type="text" placeholder="14.866" class="form-control input-md" required=""><br>
+      <span class="help-block"><small>Enter vessel latitude in decimal degrees (values range is -90 to 90)</small></span>
+  </div>
+</div><br>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="lon">Longitude</label>
+  <div class="col-md-4">
+  <input id="lon" name="lon" type="text" placeholder="-26.854" class="form-control input-md" required=""><br>
+      <span class="help-block"><small>Enter vessel longitude in decimal degrees (values range is -90 to 90)</small></span>
+  </div>
+</div><br>
+
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="submit"></label>
+  <div class="col-md-4">
+    <br>
+      <input type="submit" value="Predict" id="submit">
+  </div>
+</div>
+
+</fieldset>
+</form>
