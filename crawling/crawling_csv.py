@@ -85,7 +85,7 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(options=chrome_set_options)
     get_url("https://globalfishingwatch.org/data-download/datasets/public-training-data-v1")
     print("Login to site")
-    login_to_site(user_name='noy.amram@gmail.com', user_password='Israel2020')
+    login_to_site(user_name='site_user_name', user_password='site_password') #required site registration for user name and password 
     print("Start downloading")
     download_csv(xpath='//*[@id="root"]/div[2]/div/div/div[2]/div/div/div[1]/div[3]/div/div[1]/div[2]/button')
     download_csv(xpath='//*[@id="root"]/div[2]/div/div/div[2]/div/div/div[1]/div[3]/div/div[2]/div[2]/button')
