@@ -3,6 +3,7 @@ Before you start running:
 1. verify you are in the main directory for the project.
 2. verify that subdirectory 'fixtures' is existing.
 3. make sure docker engine is running.
+4. register to provided url to have user_name and password 
 
 In order to run this project in docker, preform the following commands:
 
