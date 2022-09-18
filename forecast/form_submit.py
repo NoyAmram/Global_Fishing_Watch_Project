@@ -1,8 +1,8 @@
 import forecast
 from flask import Flask, render_template, request
 
-
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -19,7 +19,8 @@ def get_forecast():
     lat = request.args.get('lat')
     lon = request.args.get('lon')
 
-    answer = '{:,}'.format(int(forecast.get_forecast(timestamp, distance_from_shore, distance_from_port, speed, course, lat, lon)))
+    answer = '{:,}'.format(
+        int(forecast.get_forecast(timestamp, distance_from_shore, distance_from_port, speed, course, lat, lon)))
     return render_template('answer_forecast.html', answer=answer)
 
 
