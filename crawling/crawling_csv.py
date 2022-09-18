@@ -4,10 +4,12 @@ import glob
 import pandas as pd
 import os
 
+URL = "https://globalfishingwatch.org/data-download/datasets/public-training-data-v1"
 WEB_SCRAPPING_FOLDER = '/app/crawling/webscrapping'
 
 
 def set_chrome_options():
+    """Define properties of Chrome driver"""
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
@@ -20,11 +22,13 @@ def set_chrome_options():
 
 
 def get_url(search_url):
+    """Receives site link to be accessed and waited for 2 sec."""
     driver.get(search_url)
     time.sleep(2)
 
 
 def login_to_site(user_name, user_password):
+    """Receives user's credentials to log in to the website"""
     search_box = driver.find_element_by_xpath('//*[@id="email"]')
     search_box.send_keys(user_name)
     search_box = driver.find_element_by_xpath('//*[@id="password"]')
@@ -34,6 +38,7 @@ def login_to_site(user_name, user_password):
 
 
 def download_csv(xpath):
+    """Receives specific path to each csv file required to be downloaded"""
     csv_file_button = driver.find_element_by_xpath(xpath)
     csv_file_button.click()
 
@@ -70,6 +75,7 @@ def download_wait(directory, timeout, nfiles=None):
 
 
 def one_csv(path, file_output_path='/app/fixtures/full_raw_data.csv'):
+    """Combine all csv files to one and save it in the desire path."""
     all_files = glob.glob(path + "/*.csv")
     files_list = []
     for filename in all_files:
@@ -79,13 +85,14 @@ def one_csv(path, file_output_path='/app/fixtures/full_raw_data.csv'):
     frame.to_csv(file_output_path, index=False)
 
 
-if __name__ == '__main__':
-
+def main():
+    """Starting function of the program"""
     chrome_set_options = set_chrome_options()
     driver = webdriver.Chrome(options=chrome_set_options)
-    get_url("https://globalfishingwatch.org/data-download/datasets/public-training-data-v1")
+    get_url(URL)
     print("Login to site")
-    login_to_site(user_name='site_user_name', user_password='site_password') #required site registration for user name and password 
+    login_to_site(user_name='site_user_name',
+                  user_password='site_password')  # required site registration for user name and password
     print("Start downloading")
     download_csv(xpath='//*[@id="root"]/div[2]/div/div/div[2]/div/div/div[1]/div[3]/div/div[1]/div[2]/button')
     download_csv(xpath='//*[@id="root"]/div[2]/div/div/div[2]/div/div/div[1]/div[3]/div/div[2]/div[2]/button')
@@ -100,3 +107,8 @@ if __name__ == '__main__':
     print("Unifying CSV(s)")
     one_csv(path=WEB_SCRAPPING_FOLDER)
     print("Done")
+
+
+if __name__ == '__main__':
+    main()
+
